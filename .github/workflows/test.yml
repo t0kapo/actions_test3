@@ -16,7 +16,7 @@ jobs:
                                 path: tt_codemod
                         - name: Check policy in JavaScript
                           id: tt
-                          uses: t0kapo/tt_codemod@v0.3
+                          uses: t0kapo/action_jscodeshift@v0.3
                           with:
                                 codemod: tt_codemod/codemods/transform_innerhtml.js
                                 transform: static/js/innerhtml.js
