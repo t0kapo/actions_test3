@@ -10,7 +10,7 @@ jobs:
                         - uses: actions/checkout@v2
                         - name: Check policy in JavaScript
                           id: tt
-                          uses: t0kapo/tt_codemod@v0.2
+                          uses: t0kapo/tt_codemod@v0.3
                           with:
                                 codemod: innerhtml.js
                                 js-policy-file-path: static/js/innerhtml.js
