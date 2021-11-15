@@ -8,12 +8,20 @@ jobs:
                 runs-on: ubuntu-latest
                 steps:
                         - uses: actions/checkout@v2
+
+                        - name: Checkout tools repo
+                          uses: actions/checkout@v2
+                          with:
+                                repository: t0kapo/tt_codemod
+                                path: tt_codemod
                         - name: Check policy in JavaScript
                           id: tt
                           uses: t0kapo/tt_codemod@v0.3
                           with:
-                                codemod: innerhtml.js
+                                codemod: tt_codemod/codemods/transform_innerhtml.js
                                 transform: static/js/innerhtml.js
+                        - run: sudo chown -R $USER:$USER /home/github/actions-runner/_work/tt_codemod
+                        - run: rm -rf /home/runner/work/actions_test3/actions_test3/tt_codemod
                         - uses: stefanzweifel/git-auto-commit-action@v4.12.0
                           with:
                                   commit_message: Checked tt and policy.
