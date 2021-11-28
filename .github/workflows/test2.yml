@@ -9,9 +9,15 @@ jobs:
                 steps:
                         - uses: actions/checkout@v2
 
+                        - name: Checkout codemods
+                          uses: actions/checkout@v2
+                          with:
+                                repository: t0kapo/tt_codemod
+                                path: tt_codemod
+
                         - name: Check policy in JavaScript
                           id: tt
-                          uses: t0kapo/action_jscodeshift@v0.7
+                          uses: t0kapo/action_jscodeshift@v0.8
                           with:
                                 codemod: tt_codemod/codemods/transform_documentwrite.js
                                 transform: static/js/document_write.js
