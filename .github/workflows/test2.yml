@@ -17,7 +17,7 @@ jobs:
 
                         - name: Check policy in JavaScript
                           id: tt
-                          uses: t0kapo/action_jscodeshift@v0.8
+                          uses: t0kapo/action_jscodeshift@v0.9
                           with:
                                 codemod: tt_codemod/codemods/transform_documentwrite.js
                                 transform: static/js/document_write.js
@@ -25,4 +25,5 @@ jobs:
 
                         - uses: stefanzweifel/git-auto-commit-action@v4.12.0
                           with:
+                                  file_pattern: static/js/*.js
                                   commit_message: Checked tt and policy.
