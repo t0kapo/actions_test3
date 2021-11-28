@@ -9,18 +9,14 @@ jobs:
                 steps:
                         - uses: actions/checkout@v2
 
-                        - name: Checkout tools repo
-                          uses: actions/checkout@v2
-                          with:
-                                repository: t0kapo/tt_codemod
-                                path: tt_codemod
                         - name: Check policy in JavaScript
                           id: tt
-                          uses: t0kapo/action_jscodeshift@v0.4
+                          uses: t0kapo/action_jscodeshift@v0.5
                           with:
                                 codemod: tt_codemod/codemods/transform_documentwrite.js
                                 transform: static/js/document_write.js
                                 policyname: a_policy
+
                         - uses: stefanzweifel/git-auto-commit-action@v4.12.0
                           with:
                                   commit_message: Checked tt and policy.
